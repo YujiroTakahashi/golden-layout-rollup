@@ -1,0 +1,25 @@
+{
+    "name": "golden-layout-rollup",
+    "version": "0.0.1",
+    "description": "golden-layout for rollup",
+    "private": true,
+    "scripts": {
+        "build": "rollup --config rollup.config.js",
+        "start": "rollup --config rollup.config.js --watch"
+    },
+    "dependencies": {
+        "golden-layout": "1.5.9"
+    },
+    "devDependencies": {
+        "@babel/core": "7.4.5",
+        "rollup": "1.16.3",
+        "rollup-plugin-alias": "1.5.2",
+        "rollup-plugin-babel": "4.3.3",
+        "rollup-plugin-browsersync": "1.0.0",
+        "rollup-plugin-commonjs": "10.0.1",
+        "rollup-plugin-node-resolve": "5.2.0",
+        "rollup-plugin-uglify": "6.0.2",
+        "rollup-watch": "4.3.1"
+    },
+    "license": "MIT"
+}

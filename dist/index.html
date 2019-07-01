@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <title>GoldenLayout</title>
+    <link type="text/css" rel="stylesheet" href="//cdn.jsdelivr.net/npm/golden-layout@1.5.9/src/css/goldenlayout-base.css">
+    <link type="text/css" rel="stylesheet" href="//cdn.jsdelivr.net/npm/golden-layout@1.5.9/src/css/goldenlayout-dark-theme.css">
+    <style type="text/css">
+        h2 {
+            font: 14px Arial, sans-serif;
+            color:#fff;
+            padding: 10px;
+            text-align: center;
+        }
+    </style>    
+</head>
+<body>
+    <script src="https://cdn.jsdelivr.net/npm/jquery@3.4.1/dist/jquery.min.js"></script>
+    <script src="golden-layout.js"></script>
+    <script>
+        var myLayout = new window.GoldenLayout({
+            settings: {
+                hasHeaders: true,
+                constrainDragToContainer: true,
+                reorderEnabled: true,
+                selectionEnabled: false,
+                popoutWholeStack: false,
+                blockedPopoutsThrowError: true,
+                closePopoutsOnUnload: true,
+                showPopoutIcon: false,
+                showMaximiseIcon: false,
+                showCloseIcon: false
+            },
+            dimensions: {
+                borderWidth: 5,
+                minItemHeight: 10,
+                minItemWidth: 10,
+                headerHeight: 20,
+                dragProxyWidth: 300,
+                dragProxyHeight: 200
+            },
+            labels: {
+                close: 'close',
+                maximise: 'maximise',
+                minimise: 'minimise',
+                popout: 'open in new window'
+            },
+            content: [{
+                type: 'row',
+                content:[{
+                    type: 'component',
+                    componentName: 'testComponent',
+                    componentState: { label: 'A' }
+                },{
+                    type: 'stack',
+                    content:[{
+                        type: 'component',
+                        componentName: 'testComponent',
+                        componentState: { label: 'B' }
+                    },{
+                        type: 'component',
+                        componentName: 'testComponent',
+                        componentState: { label: 'C' }
+                    }]
+                }]
+            }]
+        });
+
+        myLayout.registerComponent('testComponent', function(container, componentState) {
+            container.getElement().html('<h2>' + componentState.label + '</h2>');
+        });
+
+        myLayout.init();
+    </script>
+</body>
+</html>
